@@ -6,11 +6,14 @@ import LeftNave from '../LeftNav/LeftNave';
 import RightNav from '../RightNav/RightNav';
 import MainNav from '../MainNav/MainNav';
 import { Outlet } from 'react-router-dom';
+import NavigationBar from '../Pages/Home/Home/shared/NavigationBar/NavigationBar';
 
 const Main = () => {
   return (
     <div>
       <Header></Header>
+
+      <NavigationBar></NavigationBar>
 
       <Container>
 
