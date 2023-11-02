@@ -1,15 +1,41 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Register from '../Register/Register';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 // import { Form } from 'react-router-dom';
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
+
+
+  const handleSignIn = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email.password);
+
+    signIn(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch(error => {
+        console.log(error)
+      })
+
+
+
+  }
+
+
   return (
     <Container className='w-25 mx-auto'>
       <h2>Log In</h2>
 
-      <Form>
+      <Form onClick={handleSignIn}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email"
