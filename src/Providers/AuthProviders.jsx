@@ -10,7 +10,8 @@ const auth = getAuth (app);
 const AuthProviders = ({children}) => {
 
   // const user = {displayName: 'shakib'}
-  const user  = {displayName: 'sakib'}
+  const user  = null;
+  //  {displayName: 'sakib'}
 
   const authInfo ={user}
   return (

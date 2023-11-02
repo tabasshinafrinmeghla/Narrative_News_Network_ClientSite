@@ -1,6 +1,5 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Home from "../Pages/Home/Home/Home";
 import Category from "../Pages/Home/Category";
 import NewsPage1 from "../Pages/Home/NewsPages/NewsPage1/NewsPage1";
 import News_Layout from "../Pages/Home/NewsPages/NewsPageLayaout/News_Layout";
@@ -19,15 +18,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to={"/category/0"}></Navigate>
+        element: <Navigate to="/category/0"></Navigate>
 
       },
       {
-        path: '/login',
+        path: 'login',
         element: <Login></Login>
       },
       {
-        path: '/register',
+        path: 'register',
         element: <Register></Register>
       }
     ]

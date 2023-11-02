@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, ListGroup } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
-import Category from '../../Category';
+// import Category from '../../Category';
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from 'react-icons/fa';
 import EditorsInside from '../../../../EditersInside/EditorsInside';
 
