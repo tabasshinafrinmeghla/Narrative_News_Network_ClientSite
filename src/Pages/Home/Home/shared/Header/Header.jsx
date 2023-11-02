@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../../../../Img/Narrative_logo_black_word_mark-01.svg';
 import moment from 'moment';
 import './Header.css';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../../Providers/AuthProviders';
+import { FaUserCircle } from 'react-icons/fa';
 
 
 
 const Header = () => {
+
+  const { user } = useContext(AuthContext);
+
+
   return (
     <Container>
       <div className='text-center'>
@@ -40,9 +46,16 @@ const Header = () => {
 
             </Nav>
             <Nav>
-              <Nav.Link href="#deets">Profile</Nav.Link>
+              {user && <Nav.Link href="#deets">
+                <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle></Nav.Link>}
               <Nav.Link eventKey={2} href="#memes">
-                <Button variant="secondary">Log in</Button>
+                {user ?
+                  <Button variant="secondary">Log Out</Button>
+                  :
+                  <Link to='/log in'>
+                  <Button variant="secondary">Log in</Button>
+                  </Link>
+                }
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
