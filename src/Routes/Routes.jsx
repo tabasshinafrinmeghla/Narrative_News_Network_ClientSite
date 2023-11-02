@@ -1,27 +1,46 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Category from "../Pages/Home/Category";
 import NewsPage1 from "../Pages/Home/NewsPages/NewsPage1/NewsPage1";
 import News_Layout from "../Pages/Home/NewsPages/NewsPageLayaout/News_Layout";
 import About from "../Pages/Home/About/About";
+import Career from "../Pages/Home/Career/Career";
+import LoginLayout from "../Layout/LoginLayout";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Main></Main>,
-
+    element: <LoginLayout></LoginLayout>,
     children: [
       {
         path: '/',
-        element: <Category></Category>,
-        loader: () => fetch(`http://localhost:5000/news`)
+        element: <Navigate to={"/category/0"}></Navigate>
 
       },
       {
-        path: '/category/:id',
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/register',
+        element: <Register></Register>
+      }
+    ]
+
+  },
+  {
+    path: 'category',
+    element: <Main></Main>,
+
+    children: [
+
+      {
+        path: ':id',
         element: <Category></Category>,
         loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
 
@@ -35,6 +54,11 @@ const router = createBrowserRouter([
   {
     path: '/about',
     element: <About></About>,
+  }
+  ,
+  {
+    path: '/Career',
+    element: <Career></Career>,
   }
   ,
   {
