@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 
@@ -10,6 +10,7 @@ const Login = () => {
 
 
   const { signIn } = useContext(AuthContext);
+  const Navigate = useNavigate();
 
   const handleLogIn = event => {
 
@@ -33,6 +34,7 @@ const Login = () => {
       .then(result => {
         const createdLogin = result.user;
         console.log(createdLogin);
+        Navigate('/category/0')
       })
       .catch(error => {
         console.log(error);
