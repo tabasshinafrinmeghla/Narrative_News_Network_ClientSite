@@ -3,30 +3,40 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
-// import { Form } from 'react-router-dom';
+
 
 const Login = () => {
+
+
+
   const { signIn } = useContext(AuthContext);
 
+  const handleLogIn = event => {
 
-
-  const handleSignIn = event => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email.password);
+    console.log(email, password);
+
+
+    // signIn(email, password)
+    //   .then(result => {
+    //     const createdLogin = result.user;
+    //     console.log(createdLogin);
+    //   })
+    //   .catch(error => {
+    //     console.log(error)
+    //   })
 
     signIn(email, password)
       .then(result => {
-        const createdUser = result.user;
-        console.log(createdUser);
+        const createdLogin = result.user;
+        console.log(createdLogin);
       })
       .catch(error => {
-        console.log(error)
+        console.log(error);
       })
-
-
 
   }
 
@@ -35,7 +45,7 @@ const Login = () => {
     <Container className='w-25 mx-auto'>
       <h2>Log In</h2>
 
-      <Form onClick={handleSignIn}>
+      <Form onSubmit={handleLogIn}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email"

@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { useState } from 'react';
 
 const Register = () => {
+
+  // const [error, setError] = useState;
 
   const { createUser } = useContext(AuthContext);
 
@@ -18,12 +21,17 @@ const Register = () => {
 
     console.log(name, photo, email, password)
 
+
+
+
     createUser(email, password)
       .then(result => {
         const createdUser = result.user;
         console.log(createdUser);
       })
       .catch(error => {
+
+
         console.log(error)
       })
 
@@ -65,6 +73,12 @@ const Register = () => {
           <Form.Control type="password"
             name="password"
             placeholder="Password" required />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Conform Password</Form.Label>
+          <Form.Control type="password"
+            name="conform"
+            placeholder="Conform Password" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox"

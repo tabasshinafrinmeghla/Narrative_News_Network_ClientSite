@@ -7,11 +7,11 @@ export const AuthContext = createContext(null);
 
 
 const createUser = (email, password) => {
-  return createUserWithEmailAndPassword(auth, email, password)
+  return createUserWithEmailAndPassword(auth, email, password);
 }
 
-const signIn = () => {
-  return signInWithEmailAndPassword(auth, email, password)
+const signIn = (email,password) => {
+  return signInWithEmailAndPassword(auth, email, password);
 }
 
 const auth = getAuth(app);
