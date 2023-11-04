@@ -8,6 +8,8 @@ const Register = () => {
 
   // const [error, setError] = useState;
 
+  const [error, setError] = useState('');
+
   const { createUser } = useContext(AuthContext);
 
   const [accepted, setAccepted] = useState(false);
@@ -20,11 +22,24 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const conformPassword = form.conformPassword.value;
+    console.log(name, photo, email, password,)
 
-    console.log(name, photo, email, password)
 
+    setError('');
 
+    if (password !== conformPassword){
+      setError('please put on Same Password')
+      return
+    }
+    else if (password.length <6){
+      setError('Please put on must be 6 characters ')
+      return
+    }
 
+    alert('Successfully Enrol')
+    
+    
 
     createUser(email, password)
       .then(result => {
@@ -83,7 +98,7 @@ const Register = () => {
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Conform Password</Form.Label>
           <Form.Control type="password"
-            name="conform"
+            name="conformPassword"
             placeholder="Conform Password" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
@@ -106,12 +121,12 @@ const Register = () => {
           <Link to="/login"> go to Log In</Link>
         </Form.Text>
         <br />
-        <Form.Text className="text-success">
+        {/* <Form.Text className="text-success">
           Success
-        </Form.Text>
+        </Form.Text> */}
         <br />
         <Form.Text className="text-danger">
-          error
+          {error}
         </Form.Text>
       </Form>
     </Container>
