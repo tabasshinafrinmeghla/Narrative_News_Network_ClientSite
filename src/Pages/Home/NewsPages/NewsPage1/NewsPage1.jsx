@@ -9,7 +9,7 @@ const NewsPage1 = () => {
   const news = useLoaderData();
 
 
-  const { _id, image_url, details, name, title, total_view, author, number, badge, category_id } = news;
+  const { image_url, details, name, title, category_id } = news;
 
 
   return (

@@ -8,6 +8,8 @@ import Career from "../Pages/Home/Career/Career";
 import LoginLayout from "../Layout/LoginLayout";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+
 
 
 
@@ -67,7 +69,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        element: <NewsPage1></NewsPage1>,
+        element: <PrivateRoute> <NewsPage1></NewsPage1> </PrivateRoute>,
         loader: ({ params }) => fetch(`http://localhost:5000/news/${params.id}`)
       }
     ]

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 
@@ -11,6 +11,11 @@ const Login = () => {
 
   const { signIn } = useContext(AuthContext);
   const Navigate = useNavigate();
+  const location = useLocation();
+  console.log('login page location', location)
+  const from = location.state?.from?.pathname || '/category/0';
+
+
 
   const handleLogIn = event => {
 
@@ -21,20 +26,13 @@ const Login = () => {
     console.log(email, password);
 
 
-    // signIn(email, password)
-    //   .then(result => {
-    //     const createdLogin = result.user;
-    //     console.log(createdLogin);
-    //   })
-    //   .catch(error => {
-    //     console.log(error)
-    //   })
+
 
     signIn(email, password)
       .then(result => {
         const createdLogin = result.user;
         console.log(createdLogin);
-        Navigate('/category/0')
+        Navigate(from, { replace: true })
       })
       .catch(error => {
         console.log(error);
