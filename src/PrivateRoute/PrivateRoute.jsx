@@ -1,27 +1,29 @@
+
 import React from 'react';
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
 import { Navigate, useLocation } from 'react-router-dom';
+import { Spinner } from 'react-bootstrap';
 
-const PrivateRoute = ({ Children }) => {
-  const { user } = useContext(AuthContext);
+const PrivateRoute = ({ children }) => {
+  const { user, loading } = useContext(AuthContext);
 
-  const location = useLocation();
-  console.log(location);
+  const location = useLocation()
+  console.log('user in private route', user);
 
-
+  if (user) {
+    return <Spinner animation="border" variant="secondary" />
+  }
 
 
   if (user) {
-    return Children;
-
+    return children;
   }
   return <Navigate state={{ from: location }} to="/login" replace></Navigate>;
-
-
 };
 
 export default PrivateRoute;
+
 
 
 /**
