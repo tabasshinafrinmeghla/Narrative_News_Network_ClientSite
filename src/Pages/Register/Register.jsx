@@ -10,6 +10,8 @@ const Register = () => {
 
   const { createUser } = useContext(AuthContext);
 
+  const [accepted, setAccepted] = useState(false);
+
 
   const handleRegister = event => {
     event.preventDefault();
@@ -36,6 +38,10 @@ const Register = () => {
       })
 
 
+  }
+
+  const handleAccepted = event => {
+    setAccepted(event.target.checked)
   }
 
   return (
@@ -81,11 +87,17 @@ const Register = () => {
             placeholder="Conform Password" required />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox"
+          <Form.Check
+            onClick={handleAccepted}
+            type="checkbox"
             name="accept"
-            label="Accept Terms and Conditions" />
+            label={<>Accept <Link to="/terms">Terms and Conditions</Link></>} />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary"
+          /**
+           * terms and condition accepted korle submit button click korte parbe 
+           * */
+          disabled={!accepted} type="submit">
           Register
         </Button>
         <br />
