@@ -3,13 +3,14 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFileImport, FaRegBookmark, FaRegEye, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css';
 
 
 const NewsCard = ({ news }) => {
 
 
-  const { _id, image_url, details, published_date, name, title, total_view, author, rating, number, badge, thumbnail_url } = news;
+  const { _id, image_url, details, title, total_view, author, rating } = news;
   return (
     <div>
       <Card className="mb-4">
@@ -42,10 +43,7 @@ const NewsCard = ({ news }) => {
           <div className='d-flex '>
             <div className='flex-grow-1'>
               <span>{rating?.number}</span>
-              <Rating placeholderRating={rating.number}
-                emptySymbol={<FaRegStar></FaRegStar>}
-                placeholderSymbol={<FaStar className='text-warning'></FaStar>}
-                fullSymbol={<FaStar></FaStar>} readonly></Rating>
+              <Rating style={{ maxWidth: 250 }} value={rating} readOnly />
             </div>
             <div>
               <FaRegEye></FaRegEye> {total_view}
