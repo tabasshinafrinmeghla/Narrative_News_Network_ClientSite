@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
+import './Login.css'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -43,7 +44,8 @@ const Login = () => {
 
 
   return (
-    <Container className='w-25 mx-auto'>
+    <Container className='w-25 mx-auto ' >
+
       <h2>Log In</h2>
 
       <Form onSubmit={handleLogIn}>
@@ -62,9 +64,9 @@ const Login = () => {
             name="password"
             placeholder="Password" required />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
+        {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
+ <Form.Check type="checkbox" label="Check me out" />
+</Form.Group> */}
         <Button variant="primary" type="submit">
           Log in
         </Button>
@@ -74,14 +76,15 @@ const Login = () => {
           <Link to="/register"> go to Register</Link>
         </Form.Text>
         <br />
-        <Form.Text className="text-success">
-          Success
-        </Form.Text>
-        <br />
-        <Form.Text className="text-danger">
-          error
-        </Form.Text>
+        {/* <Form.Text className="text-success">
+ Success
+</Form.Text>
+<br />
+<Form.Text className="text-danger">
+ error
+</Form.Text> */}
       </Form>
+
     </Container>
   );
 };

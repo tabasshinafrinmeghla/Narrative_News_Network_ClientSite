@@ -43,7 +43,7 @@ const NewsCard = ({ news }) => {
           <div className='d-flex '>
             <div className='flex-grow-1'>
               <span>{rating?.number}</span>
-              <Rating style={{ maxWidth: 250 }} value={rating} readOnly />
+              <Rating style={{ maxWidth: 250 }} value={Math.round(rating?.number || 0)} readOnly />
             </div>
             <div>
               <FaRegEye></FaRegEye> {total_view}

@@ -26,10 +26,9 @@ const RightNav = () => {
       <QZone></QZone>
       <div>
         <img className='my-2 py-2' src={bg} alt="" />
-        <div>
-          <h1>hello</h1>
-        </div>
+        
       </div>
+      
     </>
 
   );

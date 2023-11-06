@@ -3,10 +3,11 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../Providers/AuthProviders';
+import './NavigationBar.css';
 
 const NavigationBar = () => {
 
-  const { user ,logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
@@ -26,10 +27,10 @@ const NavigationBar = () => {
         <Container>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="mx-auto">
-              <Link to={"/category/0"}>Home</Link>
-              <Link to={"/about"}>About</Link>
-              <Link to={"/Career"}>Career</Link>
+            <Nav className="mx-auto ">
+              <Link className='m-2' to={"/category/0"}>Home</Link>
+              <Link className='m-2' to={"/about"}>About</Link>
+              <Link className='m-2' to={"/Career"}>Career</Link>
 
 
             </Nav>
@@ -38,12 +39,12 @@ const NavigationBar = () => {
               {
                 user &&
 
-                <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                <FaUserCircle className='m-2' style={{ fontSize: '2rem' }}></FaUserCircle>
               }
 
 
               {user ?
-                <Button onClick={handleLogout} variant="secondary">Log Out</Button>
+                <Button className='m-2' onClick={handleLogout} variant="secondary">Log Out</Button>
                 :
                 <Link to='/login'>
                   <Button variant="secondary">Log in</Button>
