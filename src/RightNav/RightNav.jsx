@@ -3,8 +3,15 @@ import { Button, ListGroup } from 'react-bootstrap';
 import { FaGithub, FaGoogle, FaFacebookF, FaLinkedinIn, FaSkype, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 import QZone from '../QZone/QZone';
 import bg from '../Img/bg.png'
+import RightNavImage from './RightNavImage/RightNavImage';
 
 const RightNav = () => {
+
+
+
+
+
+
   return (
     <>
       <div>
@@ -26,9 +33,14 @@ const RightNav = () => {
       <QZone></QZone>
       <div>
         <img className='my-2 py-2' src={bg} alt="" />
-        
+
+       
+
       </div>
-      
+
+
+      <RightNavImage></RightNavImage>
+
     </>
 
   );
