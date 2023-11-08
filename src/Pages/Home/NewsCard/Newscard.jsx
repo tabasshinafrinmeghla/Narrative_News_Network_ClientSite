@@ -3,8 +3,14 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaFileImport, FaRegBookmark, FaRegEye, FaRegStar, FaShareAlt, FaStar } from 'react-icons/fa';
-import { Rating } from '@smastrom/react-rating';
-import '@smastrom/react-rating/style.css';
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
+
+
+
+
+
 
 
 const NewsCard = ({ news }) => {
