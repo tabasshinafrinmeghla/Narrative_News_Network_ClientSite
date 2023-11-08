@@ -30,7 +30,7 @@ const NavigationBar = () => {
             <Nav className="mx-auto ">
               <Link className='m-2' to={"/category/0"}>Home</Link>
               <Link className='m-2' to={"/about"}>About</Link>
-              <Link className='m-2' to={"/Career"}>Career</Link>
+              <Link className='m-2' to={"/Career"}>Contact</Link>
 
 
             </Nav>

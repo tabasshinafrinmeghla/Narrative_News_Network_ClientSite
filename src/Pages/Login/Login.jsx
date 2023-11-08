@@ -44,7 +44,7 @@ const Login = () => {
 
 
   return (
-    <Container className='w-25 mx-auto ' >
+    <Container className='w-25 mx-auto '  >
 
       <h2>Log In</h2>
 
