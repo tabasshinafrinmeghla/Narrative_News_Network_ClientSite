@@ -8,14 +8,19 @@ import MainNav from '../MainNav/MainNav';
 import { Outlet } from 'react-router-dom';
 import NavigationBar from '../Pages/Home/Home/shared/NavigationBar/NavigationBar';
 
+
+
+
+
+
 const Main = () => {
   return (
-    <div>
+    <div  >
       <Header></Header>
 
       <NavigationBar></NavigationBar>
 
-      <Container>
+      <Container >
 
         <Row>
           <Col lg={3}>

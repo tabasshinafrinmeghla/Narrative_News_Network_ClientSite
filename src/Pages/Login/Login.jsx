@@ -5,7 +5,6 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
 
-
 const Login = () => {
 
 
@@ -44,7 +43,9 @@ const Login = () => {
 
 
   return (
-    <Container className='w-25 mx-auto '  >
+    <Container  className='w-25 mx-auto '  >
+
+      
 
       <h2>Log In</h2>
 
