@@ -7,6 +7,7 @@ import RightNav from '../RightNav/RightNav';
 
 import { Outlet } from 'react-router-dom';
 import NavigationBar from '../Pages/Home/Home/shared/NavigationBar/NavigationBar';
+import useTitle from '../hooks/useTitle';
 
 
 
@@ -14,6 +15,8 @@ import NavigationBar from '../Pages/Home/Home/shared/NavigationBar/NavigationBar
 
 
 const Main = () => {
+
+  useTitle('Home')
   return (
     <div  >
       <Header></Header>

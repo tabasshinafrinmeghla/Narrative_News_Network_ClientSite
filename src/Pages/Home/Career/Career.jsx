@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../../hooks/useTitle';
 
 const Career = () => {
+  useTitle('Contact')
   return (
     <div className='p-5'>
       <h2>Narrative News NetworkS</h2>
@@ -13,7 +15,7 @@ const Career = () => {
           <thead >
             <tr >
               <th className='p-4'>#</th>
-              {Array.from ({ length: 12 }).map((_, index) => (
+              {Array.from({ length: 12 }).map((_, index) => (
                 <th key={index}>Rahim</th>
               ))}
             </tr>

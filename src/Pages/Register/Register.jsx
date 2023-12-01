@@ -3,8 +3,11 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { useState } from 'react';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+
+  useTitle('Register')
 
   // const [error, setError] = useState;
 
@@ -28,18 +31,18 @@ const Register = () => {
 
     setError('');
 
-    if (password !== conformPassword){
+    if (password !== conformPassword) {
       setError('please put on Same Password')
       return
     }
-    else if (password.length <6){
+    else if (password.length < 6) {
       setError('Please put on must be 6 characters ')
       return
     }
 
     alert('Successfully Enrol')
-    
-    
+
+
 
     createUser(email, password)
       .then(result => {

@@ -4,8 +4,10 @@ import './Login.css'
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProviders';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
+  useTitle('Log in ')
 
 
 
